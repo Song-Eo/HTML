@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<head> </head>
+<body>
+  <h3>book 객체 만들기</h3>
+  <hr />
+  <script>
+    let book1 = new Object();
+    book1.title = "HTML5";
+    book1.author = "황기태";
+    book1.price = 20000;
+
+    document.write("book : ");
+    document.write(book1.title + ", ");
+    document.write(book1.author + ", ");
+    document.write(book1.price + "<br>");
+
+    let book2 = {
+      title: "HTML5",
+      author: "황기태",
+      price: 20000,
+    };
+    document.write("book : ");
+    document.write(book2.title + ", ");
+    document.write(book2.author + ", ");
+    document.write(book2.price + "<br>");
+
+    function mBook() {
+      this.title = "HTML5";
+      this.author = "황기태";
+      this.price = 20000;
+    }
+    let book3 = new mBook();
+    document.write("book : ");
+    document.write(book3.title + ", ");
+    document.write(book3.author + ", ");
+    document.write(book3.price + "<br>");
+  </script>
+</body>

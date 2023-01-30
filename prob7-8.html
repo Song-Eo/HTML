@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<head>
+  <style>
+    div {
+      display: inline-block;
+      width: 150px;
+      padding: 10px;
+    }
+  </style>
+</head>
+<body>
+  <h3>문자열 분활</h3>
+  <hr />
+  <script>
+    let a = [];
+    a.length = 3;
+    for (let j = 0; j < 16; j++) {
+      for (let i = 0; i < 3; i++) {
+        a[i] = Math.floor(Math.random() * 256);
+      }
+      document.write(
+        '<div style="background-color: rgb(', 
+        a, ');">rgb(', a, ")</div>");
+    }
+  </script>
+</body>

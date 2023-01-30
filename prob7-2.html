@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<head> </head>
+<body>
+  <script>
+    let n = [];
+    for (let i = 0; i < 5; i++) {
+      n[i] = prompt("정수 입력");
+    }
+    document.write(
+      "<h3>정수 5개 입력받아 역순으로 출력</h3><hr>입력된 수의 배열<br>"
+    );
+    for (let i = 0; i < 5; i++) document.write(n[i] + " ");
+    document.write("<hr>역순으로 재정렬된 배열<br>");
+    for (let i = 4; i >= 0; i--) document.write(n[i] + " ");
+  </script>
+</body>

@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<head> </head>
+<body>
+  <h3>일요일은 pink, 다른 요일은 gold배경</h3>
+  <hr>
+  <script>
+    let current = new Date();
+    if (current.getDay() != 0) document.body.style.backgroundColor = "gold";
+    else document.body.style.backgroundColor = "pink";
+    let dlist = ["일", "월", "화", "수", "목", "금", "토", "일"];
+
+    document.write("오늘 : ");
+    document.write(current.getDate(), "일, ");
+    document.write(dlist[current.getDay()], "요일");
+  </script>
+</body>
