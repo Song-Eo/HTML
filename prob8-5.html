@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>z-index 프로퍼티</title>
+    <style>
+      div {
+        position: absolute;
+      }
+      img {
+        position: absolute;
+      }
+    </style>
+  </head>
+  <body>
+    <h3>z-index 프로퍼티</h3>
+    <hr />
+    <div>
+      <img onclick="changeCard(this)" src="media/spade-A.png" width="100" height="140" alt="스페이드A" />
+      <img onclick="changeCard(this)" src="media/spade-2.png" width="100" height="140" alt="스페이드2" />
+      <img onclick="changeCard(this)" src="media/spade-3.png" width="100" height="140" alt="스페이드3" />
+      <img onclick="changeCard(this)" src="media/spade-7.png" width="100" height="140" alt="스페이드7" />
+    </div>
+    <script>
+      function changeCard(obj) {
+        target = document.getElementsByTagName("img");
+        for (let i = 0; i < target.length; i++) {
+          if (target[i].src == obj.src) {
+            let a = (i + 1) % target.length;
+            target[i].style.zIndex = 0;
+            target[a].style.zIndex = 1;
+          }
+        }
+      }
+    </script>
+  </body>
+</html>

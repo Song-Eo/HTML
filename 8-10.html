@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    
+</head>
+<body>
+    <h3>정답의 동적 삽입</h3>
+    <hr>
+    <div>
+        <p>Q. 거울아 거울아 세상에서 누가 제일 예쁘니?</p>
+        <button onclick="addAnswer(this, '백설공주')">답보기</button>
+    </div>
+    <div>
+        <p>Q. 죽느냐 사느냐 어떤 것이 문제인가?</p>
+        <button onclick="addAnswer(this, '둘다')">답보기</button>
+    </div>
+    <script>
+        function addAnswer(obj, text){
+            obj.parentElement.innerHTML += "<p onclick=\"dele(this)\">"+text+"</p>";
+        }
+        function dele(obj){
+            obj.remove();
+        }
+    </script>
+
+
+    
+</body>
+</html>
