@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html><head>
+<meta charset="UTF-8">
+<title>onclick</title>
+<script>
+window.onmouseover = function(e){
+	if(e.target.tagName=="SPAN"){
+		e.target.style.textDecoration = "underline";
+	}
+}
+window.onmouseout = function(e){
+	if(e.target.tagName=="SPAN"){
+		e.target.style.textDecoration = "none";
+	}
+}
+</script>
+</head>
+<body >
+<h3>span태그에만 마우스 오버</h3>
+<hr>
+<p>span 태그에만 <span>마우스</span>올리고</p>
+</form>
+</body>
+</html>

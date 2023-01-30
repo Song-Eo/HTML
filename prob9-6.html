@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html><head>
+<meta charset="UTF-8">
+<title>onclick</title>
+<script>
+function wheel(e, obj){
+	let wid = obj.width;
+	let hei = obj.height;
+	console.log(wid, " ",hei);
+	if(e.wheelDelta > 0){
+		wid = wid*1.05;
+		hei = hei*1.05;
+	}
+	else{
+		wid = wid*0.95;
+		hei = hei*0.95;
+	}
+	obj.style.width = wid+"px";
+	obj.style.height = hei+"px";
+	console.log(wid, " ",hei);
+}
+</script>
+</head>
+<body >
+<h3>이미지 커서 만들기</h3>
+<hr>
+<img onwheel="wheel(event, this)" src="media/Penguins.png">
+</form>
+</body>
+</html>

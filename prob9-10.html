@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html><head>
+<meta charset="UTF-8">
+<title>onclick</title>
+
+</head>
+<body onload="addListen()">
+	<h3>계산기</h3>
+	<hr>
+	<input type="text" id="target" value="">
+	<table>
+		<tr>
+			<td><input type="button" value="BACK"></td>
+			<td><input type="button" value="CE"></td>
+			<td><input type="button" value="C"></td>
+			<td><input type="button" value="="></td>
+		</tr>
+		<tr>
+			<td><input type="button" value="7"></td>
+			<td><input type="button" value="8"></td>
+			<td><input type="button" value="9"></td>
+			<td><input type="button" value="/"></td>
+		</tr>
+		<tr>
+			<td><input type="button" value="4"></td>
+			<td><input type="button" value="5"></td>
+			<td><input type="button" value="6"></td>
+			<td><input type="button" value="*"></td>
+		</tr>
+		<tr>
+			<td><input type="button" value="1"></td>
+			<td><input type="button" value="2"></td>
+			<td><input type="button" value="3"></td>
+			<td><input type="button" value="-"></td>
+		</tr>
+		<tr>
+			<td><input type="button" value="0"></td>
+			<td><input type="button" value="+"></td>
+			<td><input type="button" value="NONE"></td>
+			<td><input type="button" value="NONE"></td>
+		</tr>
+	</table>
+	<script>
+		let a = document.getElementsByTagName("input");
+		let text="";
+		let tar = document.getElementById("target");
+		function addListen(){
+			for(let i = 1; i<a.length-2; i++){
+				if (i == 1)
+					a[i].addEventListener('click', back)
+				else if(i<4)
+					a[i].addEventListener('click', cancle)
+				else if(i<5)
+					a[i].addEventListener('click', val)
+				else
+					a[i].addEventListener('click', addText)
+			}
+		}
+	
+		function back(){
+			text = text.substr(0, text.length-1);
+			tar.value = text;
+		}
+		function cancle(){
+			text="";
+			tar.value = text;
+		}
+		function val(){
+			text = eval(tar.value);
+			tar.value = text;
+		}
+		function addText(e){
+			text += e.target.value;
+			tar.value = text;
+		}
+	</script>
+</body>
+</html>

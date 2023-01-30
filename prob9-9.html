@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html><head>
+<meta charset="UTF-8">
+<title>onclick</title>
+<script>
+	let a = document.getElementsByTagName("li");
+	let text = ["1", "2", "3", "4"];
+	let currentText;
+	let prevobj;
+	function set(e){
+		switch (e.target){
+			case a[0]: currentText=text[0]; break;
+			case a[1]: currentText=text[1]; break;
+			case a[2]: currentText=text[2]; break;
+			case a[3]: currentText=text[3]; break;
+		}
+		let target = document.getElementById("tar");
+		target.innerHTML=currentText;
+		target.style.left = e.clientX + "px";
+		target.style.top = e.clientY + "px";
+		target.style.visibility="visible";
+	}
+	function hide(e){
+		let target = document.getElementById("tar");
+		target.innerHTML=null;
+		target.style.visibility="hidden";
+	}
+	window.onload=function (){
+	for(let i = 0; i<a.length; i++){
+		a[i].addEventListener('mouseover', set);
+		a[i].addEventListener('mouseout', hide);
+	}
+}
+</script>
+</head>
+<body >
+	<h3>클릭시 1.3배 크기로</h3>
+	<hr>
+	<ul>
+		<li>자전거로</li>
+		<li>책100권</li>
+		<li>철인 3종</li>
+		<li>자바스크립트</li>
+	</ul>
+	<div id="tar" style="position: absolute; visibility: hidden;"></div>
+</body>
+</html>

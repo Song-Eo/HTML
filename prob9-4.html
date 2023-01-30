@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html><head>
+<meta charset="UTF-8">
+<title>onclick</title>
+<script>
+document.onmousemove=function (e){
+	let target = document.getElementById("mouseImg");
+	target.style.left = e.clientX + "px";
+	target.style.top = e.clientY + "px";
+}
+</script>
+</head>
+<body >
+<h3>이미지 커서 만들기</h3>
+<hr>
+<div id="mouseImg" style="position: absolute;"><img src="media/Penguins.png" style="width: 30px; height: 30px;"></div>
+</form>
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html><head>
+<meta charset="UTF-8">
+<title>onclick</title>
+<script>
+	let a = document.getElementsByTagName("li");
+	let prevobj;
+	function sizing(event){
+		prevobj.style.fontSize="1em";
+		prevobj=event.target;
+		event.target.style.fontSize="1.3em";
+	}
+	window.onload=function (){
+	for(let i = 0; i<a.length; i++){
+		a[i].addEventListener('click', sizing);
+	}
+	prevobj=a[0];
+}
+</script>
+</head>
+<body >
+	<h3>클릭시 1.3배 크기로</h3>
+	<hr>
+	<ul>
+		<li>자전거로</li>
+		<li>책100권</li>
+		<li>철인 3종</li>
+		<li>자바스크립트</li>
+	</ul>
+</body>
+</html>

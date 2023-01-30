@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html><head>
+<meta charset="UTF-8">
+<title>onclick</title>
+<script>
+document.ondblclick=function (e){
+	let red = Math.floor(Math.random()*256);
+	let blue = Math.floor(Math.random()*256);
+	let green = Math.floor(Math.random()*256);
+	document.body.style.backgroundColor="rgb("+red+","+green+","+blue+")";
+}
+</script>
+</head>
+<body >
+<h3>바탕 아무 곳에나 더블클릭</h3>
+<hr>
+</body>
+</html>
