@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>자바스크립트로 오디오 제어</title>
+</head>
+<body>
+<h3>자바스크립트로 오디오 제어</h3>
+<hr>
+<audio id="audio" src="" controls></audio>
+<div id="msg">오디오 제어 메시지 출력</div>
+	<table>
+		<tr>
+			<td>1</td>
+			<td>애국가</td>
+			<td><button type="button" id="play" onclick="control(event)" value="media/Aegukga.mp3">재생</button></td>
+			<td><button type="button" id="pause" onclick="control(event)">중지</button></td>
+		</tr>
+		<tr>
+			<td>2</td>
+			<td>Moon Glow</td>
+			<td><button type="button" id="play" onclick="control(event)" value="media/MoonGlow.mp3">재생</button></td>
+			<td><button type="button" id="pause" onclick="control(event)">중지</button></td>
+		</tr>
+		<tr>
+			<td>3</td>
+			<td>Embraceable You</td>
+			<td><button type="button" id="play" onclick="control(event)" value="media/EmbraceableYou.mp3">재생</button></td>
+			<td><button type="button" id="pause" onclick="control(event)">중지</button></td>
+		</tr>
+	</table>
+<script>
+let div = document.getElementById("msg");
+let audio = document.getElementById("audio");
+function control(e) {
+	let id = e.target.id;
+	if(id == "play") 
+	{	
+		audio.src=e.target.value;
+		audio.play();
+	}
+	else if(id == "pause") {
+		audio.pause();
+	}
+}
+</script></body></html>

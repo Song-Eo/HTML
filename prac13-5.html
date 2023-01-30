@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<script>
+let worker;
+
+function worker_function(){
+	onmessage = function (e) {
+	let grade="F";
+	let score = e.data;
+	score = parseInt(score);
+	switch(Math.floor(score/10)) {
+		case 10 : case 9 : grade = "A"; break; 
+		case 8 : grade = "B"; break; 
+		case 7 : grade = "C"; break; 
+		case 6 : grade = "D"; break;
+		default :
+	}
+	postMessage(grade);
+}
+
+}
+
+function startWorkTask() {
+	worker = new Worker(URL.createObjectURL(new Blob(["("+worker_function.toString()+")()"], {type: 'text/javascript'})));
+}
+
+function calculate() {
+	let score = prompt("점수를 숫자로 입력하세요", "");
+	if(score == null || isNaN(score) == true) {
+		alert("숫자로 입력하세요");
+	}
+
+	else if(parseInt(score) > 100 || parseInt(score) < 0) {
+		alert("점수가 0~100 사이가 아님");		
+	}
+	
+	let msgArea = document.getElementById("msg");
+	msgArea.innerHTML += score;
+		
+	worker.postMessage(score);
+	
+	worker.onmessage = function (e) {
+		let msgArea = document.getElementById("msg");
+		msgArea.innerHTML += "=" + e.data + "<br>";
+	}
+}
+</script>
+</head>
+<body onload="startWorkTask()">
+<h3>학점 매기기</h3>
+<hr>
+<button onclick="calculate()">점수 입력</button>
+<div id="msg"></div>
+</body>
+</html>
