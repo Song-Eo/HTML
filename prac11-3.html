@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<script>
+window.onload = function () {
+	let canvas = document.getElementById("myCanvas");
+	let context = canvas.getContext("2d");
+	drawO(context);
+}
+
+function drawCircle(ctx, x, y, radius, color) {
+	ctx.beginPath();
+	ctx.arc(x, y, radius, 0, 2*Math.PI);
+	ctx.lineWidth = 3;
+	ctx.strokeStyle = color;
+	ctx.stroke();
+}
+function drawO(ctx, xArray, yArray) {
+	let startX = 80;
+	let startY = 120;
+	let radius = 50;
+	
+	const colors = ["blue", "black", "red", "yellow", "green"];
+	let x = startX;
+	let y = startY;
+	let c = 7;
+	for(let i=0; i<5; i++) {
+		if(!(i%2)){
+			drawCircle(ctx, x, y, radius, colors[i]);
+			x += radius+c;
+			y += radius;
+		}
+		else{
+			drawCircle(ctx, x, y, radius, colors[i]);
+			x += radius+c;
+			y -= radius;
+		}
+	}
+	x = startX + radius + c/2; 
+}
+</script>
+</head>
+<body>
+<h3>오륜기 그리기</h3>
+<hr>
+<canvas id="myCanvas" width="400" height="300" 
+        style="background-color:aliceblue"></canvas>
+</body>
+</html>

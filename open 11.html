@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<head>
+    <script>
+        let colors = ["blue", "green", "yellow", "magenta", "red"];
+        let grades = ["A", "B", "C", "D", "F"];
+
+        function drawing(ctx){
+            let a = document.getElementsByTagName("input");
+            let total = 0;
+            let currentlocation = Math.PI*(3/2), radiuses;
+
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            
+            for(let i =0; i<5; i++){
+                total += parseInt(a[i].value);
+            }
+            for(let i =0; i<5; i++){
+                radiuses = currentlocation + ((Math.PI*2)*((a[i].value/total)));
+                ctx.beginPath();
+                ctx.moveTo(300,150);
+                ctx.arc(300, 150, 100, currentlocation, radiuses);
+
+                ctx.closePath();
+                currentlocation = radiuses;
+                ctx.strokeStyle=colors[i];
+                ctx.fillStyle=colors[i];
+                ctx.stroke();
+                ctx.fill();
+            }
+        }
+    </script>
+</head>
+<body>
+    <h3>학점 별로 학생 수를 입력하면 파이 차트로 비율 그리기</h3>
+    <hr>
+    <div id="target"></div>
+    <button onclick="drawing(context)">차트그리기</button>
+    <canvas id="myCanvas" width="600" height="300" style="background-color: aliceblue;"></canvas>
+    <script>
+        let a = document.getElementById("target")
+        for(let i = 0; i<5; i++){
+            a.innerHTML += (grades[i],"<input type=\"number\" value=\"10\">");
+        }
+        document.write("");
+        document.write("");
+        let canvas = document.getElementById("myCanvas");
+        let context = canvas.getContext("2d");
+        
+    </script>
+
+
+</body>
