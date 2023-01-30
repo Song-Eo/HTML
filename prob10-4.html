@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<script>
+function chrome() {
+	console.log(navigator);
+	if(navigator.vendor == 'Google Inc.'){
+		alert("구글 크롬 브라우저입니다.");
+	}
+	else{
+		alert("크롬 브라우저가 아닙니다");
+	}
+}
+</script>
+</head>
+<body onload="chrome()">
+<h3>구글 크롬 브라우저 감별</h3>
+<hr>
+</body>
+</html>
